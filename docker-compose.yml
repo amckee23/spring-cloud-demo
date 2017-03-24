@@ -1,0 +1,35 @@
+discovery-service:
+  image: lunch/discovery-service
+  container_name: lunch-discovery-service
+  ports:
+  - "8761:8761"
+gateway:
+ image: lunch/gateway-service
+ container_name: lunch-gateway
+ ports:
+  - "8090:8090"
+ links:
+    - discovery-service
+product-service:
+  image: lunch/product-service
+  container_name: lunch-product-service
+  ports:
+    - "9000:9000"
+  links:
+    -  discovery-service
+    -  product-stub
+customer-service-one:
+  image: lunch/customer-service
+  container_name: lunch-customer-service-one
+  links:
+    -  discovery-service
+customer-service-two:
+  image: lunch/customer-service
+  container_name: lunch-customer-service-two
+  links:
+    -  discovery-service
+product-stub:
+  image: lunch/product-stub
+  container_name: product-stub
+  links:
+    -  discovery-service
