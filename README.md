@@ -1,5 +1,5 @@
 # Spring Cloud Example App
-This repository represents an example of the following netflox oss tools:
+This repository represents an example of the following netflix oss tools:
 - Zuul as an edge service
 - Eureka as a service discovery application 
 - Hystrix for request failover
